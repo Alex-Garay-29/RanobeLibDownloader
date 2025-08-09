@@ -1,0 +1,5 @@
+beautifulsoup4==4.13.4
+EbookLib==0.19
+lxml==6.0.0
+requests==2.32.4
+selenium==4.34.2
