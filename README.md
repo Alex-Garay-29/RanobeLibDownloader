@@ -68,12 +68,13 @@ sudo pacman -S firefox geckodriver python-pip
 ```bash
 
 python ranobelib_cwalk_epub.py \
-  --url "https://ranobelib.me/ru/<slug>/read/v1/c1?bid=XXXX&ui=YYYY" \
+  --url "" \
   --out "./output" \
   --headless 0 \
   --max-chapters 20 \
   --cend 30 \
-  --auto-next-volume 1
+  --auto-next-volume 1 \
+  --ff-profile "/Users/ulyanaperova/Library/Application Support/Firefox/Profiles/gbzygcdg.default-release"
 ```
 
 #### Arguments:

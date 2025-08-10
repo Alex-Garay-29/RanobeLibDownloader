@@ -50,8 +50,10 @@ def longer_sleep() -> None:
     time.sleep(random.uniform(3.0, 6.0))
 
 
-def make_driver(headless: bool = False, user_agent: Optional[str] = None) -> webdriver.Firefox:
-    """Create and configure a Firefox WebDriver."""
+def make_driver(headless: bool = False,
+                user_agent: Optional[str] = None,
+                ff_profile: Optional[str] = None) -> webdriver.Firefox:
+    """Create and configure a Firefox WebDriver. Optionally use an existing Firefox profile."""
     opts = FirefoxOptions()
     if headless:
         opts.add_argument("-headless")
@@ -61,6 +63,13 @@ def make_driver(headless: bool = False, user_agent: Optional[str] = None) -> web
     opts.set_preference("intl.accept_languages", "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7")
     if user_agent:
         opts.set_preference("general.useragent.override", user_agent)
+    if ff_profile:
+        # Use an existing Firefox profile (make sure it's not locked by a running Firefox).
+        # If you need to keep regular Firefox open, consider using a copied/separate profile.
+        opts.add_argument("-profile")
+        opts.add_argument(ff_profile)
+        # If you face profile-in-use conflicts, you may try enabling:
+        # opts.add_argument("-no-remote")
 
     driver = webdriver.Firefox(options=opts)
     driver.set_page_load_timeout(60)
@@ -343,9 +352,10 @@ def run(first_chapter_url: str,
         headless: bool,
         max_chapters: Optional[int],
         c_end: Optional[int],
-        auto_next_volume: bool):
+        auto_next_volume: bool,
+        ff_profile: Optional[str] = None):
     """Drive the browser and iterate cN -> cN+1 until exhausted or limited."""
-    driver = make_driver(headless=headless)
+    driver = make_driver(headless=headless, user_agent=None, ff_profile=ff_profile)
     sess = requests.Session()
     try:
         driver.get(first_chapter_url)
@@ -356,6 +366,8 @@ def run(first_chapter_url: str,
         out_path = os.path.join(out_dir, f"{base_name}.epub")
         print(f"Book: {book_title}")
         print(f"Output: {out_path}")
+        if ff_profile:
+            print(f"Using Firefox profile: {ff_profile}")
 
         start_parsed = urlparse(first_chapter_url)
         start_vc = parse_vc(start_parsed.path)
@@ -447,6 +459,11 @@ def main():
     parser.add_argument("--max-chapters", type=int, default=None, help="Max number of chapters to download.")
     parser.add_argument("--cend", type=int, default=None, help="Stop after this chapter number (same volume).")
     parser.add_argument("--auto-next-volume", type=int, default=1, help="Try v+1/c1 if a chapter doesn't load.")
+    parser.add_argument(
+        "--ff-profile",
+        default=None,
+        help="Path to Firefox profile directory (macOS: ~/Library/Application Support/Firefox/Profiles/<name>.default-release)"
+    )
     args = parser.parse_args()
 
     run(
@@ -456,6 +473,7 @@ def main():
         max_chapters=args.max_chapters,
         c_end=args.cend,
         auto_next_volume=bool(args.auto_next_volume),
+        ff_profile=args.ff_profile,
     )
 
 
